@@ -283,10 +283,34 @@ public class World extends JPanel
                 //drop gem from gem bag
                 if(karel.getGemCount() > 0)
                 {
+                    boolean winner = true;
                     tempGem = karel.removeGem();
                     tempGem.SetX(karel.GetX());
                     tempGem.SetY(karel.GetY());
                     gems.add(tempGem);
+                    // Looping through gems
+                    for (int i = 0; i < gems.size(); i++)
+                    {
+                        tempGem = (Gem) gems.get(i);
+                        // If Karel's bag isn't empty
+                        if (karel.getGemCount() != 0)
+                        {
+                            winner = false; // Didn't win
+                            break;
+                        }                                                
+                        // If the current gem isn't on home
+                        if (!((tempGem.GetX() == Home.GetX()) 
+                              && (tempGem.GetY() == Home.GetY())))
+                        {
+                            winner = false; // Didn't win
+                            break;
+                        }
+                    }
+                    
+                    if (winner)
+                    {
+                        winGame();
+                    }
                 }
                 break;
             case "manual":
@@ -326,11 +350,7 @@ public class World extends JPanel
             //if karel is home and all gems are taken, move and end game
             if(gems.isEmpty())
             {
-                isRunning = false;
-                playVictoryMusic();
-                infoBox("You have won!", "Congratulations!");
-                worldDeleter();
-                initWorld();
+           //   winGame();
             }
         }
         return false; // no error
@@ -750,5 +770,14 @@ public class World extends JPanel
             }
             
             catch(Exception e) {};
+        }
+        
+        private void winGame()
+        {
+            isRunning = false;
+            playVictoryMusic();
+            infoBox("You have won!", "Congratulations!");
+            worldDeleter();
+            initWorld();
         }
 }

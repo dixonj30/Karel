@@ -118,6 +118,7 @@ public class Karel extends javax.swing.JFrame
         lastPane = buttonPanel;
         hidePanels(lastPane);
         logText.setEditable(false);
+        speedCounter.setEditable(false);
         // Creating the popout frame with line numbering
         programmerFrame = new JInternalFrame("Programmer Mode");
         // Building Menu
@@ -468,7 +469,7 @@ public class Karel extends javax.swing.JFrame
                 .addGroup(buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton8)
                     .addComponent(jButton9))
-                .addContainerGap(216, Short.MAX_VALUE))
+                .addContainerGap(213, Short.MAX_VALUE))
         );
 
         leftContainer.add(buttonPanel, "card2");
@@ -583,7 +584,7 @@ public class Karel extends javax.swing.JFrame
         );
         blankPanelLayout.setVerticalGroup(
             blankPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 464, Short.MAX_VALUE)
+            .addGap(0, 461, Short.MAX_VALUE)
         );
 
         leftContainer.add(blankPanel, "card4");
@@ -605,7 +606,7 @@ public class Karel extends javax.swing.JFrame
         );
         worldLayout.setVerticalGroup(
             worldLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 464, Short.MAX_VALUE)
+            .addGap(0, 461, Short.MAX_VALUE)
         );
 
         rightContainer.add(world);
